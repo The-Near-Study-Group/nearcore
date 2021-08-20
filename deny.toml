@@ -19,7 +19,6 @@ deny = [
 skip = [
     { name = "clap", version = "=2.33.3" },
     { name = "humantime", version = "=2.1.0" },
-    { name = "socket2", version = "=0.3.19" },
     { name = "textwrap", version = "=0.12.1" },
 
     # near-epoch-manager fixed the rand version to ensure protocol stability
@@ -33,7 +32,7 @@ skip = [
     { name = "wasmparser", version = "=0.51.4" },
     { name = "rand_core", version = "=0.4.2" },
     # wasmer 0.17 and wasmtime 0.17 uses older versions of some crates
-    { name = "generic-array", version = "=0.12.3" },
+    { name = "generic-array", version = "=0.12.4" },
 
     # `sha2` uses it
     { name = "cfg-if", version = "=1.0.0" },
@@ -43,17 +42,13 @@ skip = [
     { name = "rand_xorshift", version = "=0.2.0" },
     { name = "wasmparser", version = "=0.59.0" },
 
-    # wasmtime and actix-http
-    { name = "gimli", version = "=0.23.0" },
-
     # wasmer and wasmtime
+    { name = "gimli", version = "=0.22.0" },
+    { name = "gimli", version = "=0.23.0" },
     { name = "target-lexicon", version = "=0.10.0" },
 
     # chain and param estimator
     { name = "num-rational", version = "=0.3.2" },
-
-    # crossbeam-epoch and wasmtime-runtime
-    { name = "memoffset", version = "=0.6.1" },
 
     # tracing-subscriber via near-logger-utils and clap via bindgen
     { name = "ansi_term", version = "=0.12.1" },
@@ -63,6 +58,9 @@ skip = [
     { name = "parking_lot_core", version = "=0.7.2" },
     { name = "lock_api", version = "=0.3.4" },
     { name = "digest", version = "=0.8.1" },
+
+    # wasmtime 0.25.x
+    { name = "addr2line", version = "=0.14.1" },
 
     # chrono uses old time crate
     { name = "time", version = "=0.1.43" },
@@ -89,6 +87,7 @@ skip = [
     { name = "cranelift-frontend", version = "=0.68.0" },
     { name = "wasmparser", version = "=0.65.0" },
     { name = "object", version = "=0.22.0" },
+    { name = "object", version = "=0.23.0" },
 
     # cached uses an older version
     { name = "strsim", version = "=0.9.3" },
@@ -99,19 +98,29 @@ skip = [
     # hashbrown uses an older version
     { name = "ahash", version = "=0.4.7" },
 
-    # zeropool-bn use borsh 0.8.1
-    { name = "borsh", version = "=0.8.1" },
-    { name = "borsh-derive", version = "=0.8.1" },
-    { name = "borsh-derive-internal", version = "=0.8.1" },
-    { name = "borsh-schema-derive-internal", version = "=0.8.1" },
+    # zeropool-bn use borsh 0.8.2
+    { name = "borsh", version = "=0.8.2" },
+    { name = "borsh-derive", version = "=0.8.2" },
+    { name = "borsh-derive-internal", version = "=0.8.2" },
+    { name = "borsh-schema-derive-internal", version = "=0.8.2" },
+
+    # borsh depends on it
+    { name = "hashbrown", version = "=0.9.1" },
 
     # rocksdb (transitively through clang-sys) uses this as a build
     # dependency which conflicts with 0.6.7 that wasmer-engine-native
     # uses.
     { name = "libloading", version = "=0.7.0" },
 
+    # rocksdb build dependency
+    { name = "bitvec", version = "=0.19.5" },
+    { name = "radium", version = "=0.5.3" },
+
     # wasmer-runtime-core-near and parity-secp256k1 use an older version
     { name = "arrayvec", version = "=0.5.2" },
+
+    # wasmer-runtime-core-near
+    { name = "rustc_version", version = "=0.2.3" },
 
     # borsh uses a very old version of proc-macro-crate
     { name = "proc-macro-crate", version = "=0.1.5" }
